@@ -13,7 +13,13 @@ const controller = {
 		})
 	},
 	search: (req, res) => {
-		// Do the magic
+		//res.send(req.query)
+		let result = products.filter(product => product.name.toLowerCase().trim().includes(req.query.keywords.toLowerCase().trim()));
+		res.render('results',{
+			products : result,
+			finalPrice,
+			busqueda : req.query.keywords.trim()
+		})
 	},
 };
 
