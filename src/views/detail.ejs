@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<%- include('partials/head', {title: producto.name}) %>
+<%- include('partials/head', {title : product.name}) %>
 <body>
 	<!-- Header -->
 	<%- include('partials/headerNavbar') %>
@@ -11,35 +11,35 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Detalle del producto:  </h2>
+				<h2 class="products-title">Detalle del producto:</h2>
 			</div>
 		</div>
 		<div class="product-detail">
 			<div class="row">
 				<div class="col-12 col-lg-8">
-					<img src="/images/products/<%= producto.image  %> " alt="product image" class="product-detail-img">
+					<img src="/images/products/<%= product.image  %> " alt="product image" class="product-detail-img">
 					<p class="product-detail-description">
-						<%= producto.descripcion %>
+						<%= product.descripcion %>
 					</p>
 				</div>
 				<div class="col-12 col-lg-4">
 					<article class="product-detail-info">
-						<h2 class="product-detail-title"><%= producto.name %></h2>
+						<h2 class="product-detail-title"><%= product.name %></h2>
 						
 							<p class="product-detail-price small">
-								<% if (producto.discount > 0) { %>
-								<span>$<%=producto.price  %> </span>
+								<% if (product.discount > 0) { %>
+								<span>$<%=product.price  %> </span>
 								/
 								
-									<b><%= producto.discount  %> </b>
+									<b><%= product.discount  %> </b>
 								</p>
 								<p class="product-detail-price">
-								$<%= finalPrice(producto.price,producto.discount)%>
+								$<%= finalPrice(product.price,product.discount)%>
 							</p>
 								<% }else { %>
 								
 									<p class="product-detail-price">
-										$<%= producto.price %>
+										$<%= product.price %>
 									</p>
 								
 									<% } %> 
@@ -60,8 +60,8 @@
 						<a href="#" class="buy-now-button">COMPRAR AHORA</a>
 						<hr>
 
-						<a href="/products/edit/<%= producto.id %> " class="action-button edit">EDITAR PRODUCTO</a>
-						<form action="/products/delete/<%= producto.id %>" method="POST" style="display: inline-flex">
+						<a href="/products/edit/<%= product.id %> " class="action-button edit">EDITAR PRODUCTO</a>
+						<form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
 							<button type="submit" class="action-button delete">ELIMINAR</button>
 						</form>
 					</article>
